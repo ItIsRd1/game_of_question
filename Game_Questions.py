@@ -172,4 +172,6 @@ elif chose_game.lower().strip() == "game 3" or chose_game.strip() == "3":
             print(" \nyour score in -game 3- is :",
                   int(point1+point2+point3), "point")
             out = True
+else :
+    quit()
 # finish :)
