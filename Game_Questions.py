@@ -1,6 +1,6 @@
 # start :)
 
-from multiprocessing.sharedctypes import Value
+import random
 
 want_play = input("do you want play : ")
 if want_play.lower().strip() != "yes":
@@ -9,9 +9,10 @@ print(" \n \nchose what the game you need to blay \n GAME 1 | GAME 2 | GMAE 3\n 
 
 chose_game = input()
 if chose_game.lower().strip() == "game 1" or chose_game.strip() == "1":
+    # gmae 1
+    print(" \n--Game 1--")
     start = ""
     tries = 5
-    print(" \n--Game 1--")
     while start.lower().strip() != "start":
         print(" \nprint 'start' to lunch the game :")
         start = input()
@@ -47,59 +48,57 @@ if chose_game.lower().strip() == "game 1" or chose_game.strip() == "1":
         print(" \nthat's false, YOU LOSE!!!")
         point3 = 0
 
-    out = False
     result = ""
-
-    while not out:
+    while result.lower().strip() != "result":
         print(" \n \nPrint 'result' to check your score")
         result = input()
-        if result.lower().strip() == "result":
-            print(" \nyour score in -game 1- is :",
-                  int(point1+point2+point3), "point")
-            out = True
-
+    else:
+        print(" \nyour score in -game 3- is :",
+              int(point1+point2+point3), "points")
+# game 2
 elif chose_game.lower().strip() == "game 2" or chose_game.strip() == "2":
     print(" \n \n--Game 2--\n \n ")
-    correct_num = 8
+    correct_num = random.randint(1, 9)
     mohawalat = 3
     Omohawalat = 0
     guess = ""
     out = False
     guesspoint = 30
+
+    print("in this game you have to guess the correct number")
+    print(" 0 < correct num < 10")
     print("-- your tries now is : 3 --")
-    print("one of this numbers is correct : 1 , 2 , 5 , 8 ,10")
 
-    while ValueError and guess != correct_num and not out:
-        try:
-            while guess != correct_num and not out:
-                if Omohawalat < mohawalat:
-                    guess = int(input("Enter your guess\n=>"))
-                    mohawalat -= 1
-                    if Omohawalat < mohawalat and guess != correct_num:
-                        print("false\n-- your tries now is :",
-                              mohawalat, "--\n ")
-                        guesspoint -= 10
-                    if mohawalat == 0 and guess != correct_num:
-                        print(" \n-- your tries is finished --")
-                        guesspoint = 0
-                else:
-                    out = True
-            if out:
-                print("all nembers you guess false, YOU LOSE !!!")
-            else:
-                print(correct_num, "is the correct number,so YOU WIN !!!")
-        except ValueError:
-            print("only nembers pls")
-        out = False
+    while guess != correct_num and not out:
+        if Omohawalat < mohawalat:
+            guess = int(input("Enter your guess\n=>"))
+            mohawalat -= 1
+            if Omohawalat < mohawalat and guess != correct_num:
+                print("\nthat's false !\n-- your tries now is :",
+                      mohawalat, "--")
+                if correct_num < guess:
+                    print("the correct number is smallest")
+                elif correct_num > guess:
+                    print("the correct numbre is biggest")
+                guesspoint -= 10
+            if mohawalat == 0 and guess != correct_num:
+                print("\nthat's false !\n-- your tries is finished --")
+                guesspoint = 0
+        else:
+            out = True
+    if out:
+        print("all nembers you guess is false, YOU LOSE !!!")
+    else:
+        print(correct_num, "is the correct number,so YOU WIN !!!")
+
     result = ""
-
-    while not out:
+    while result.lower().strip() != "result":
         print(" \n \nPrint 'result' to check your score")
         result = input()
-        if result.lower().strip() == "result":
-            print(" \nyour score in -game 2- is :", int(guesspoint), "points")
-            out = True
+    else:
+        print(" \nyour score in -game 2- is :", int(guesspoint), "points")
 elif chose_game.lower().strip() == "game 3" or chose_game.strip() == "3":
+    # game 3
     print(" \n \n--Game 3--\n \n ")
     cal1 = str(374+839)
     cal2 = str(243-84)
@@ -162,16 +161,13 @@ elif chose_game.lower().strip() == "game 3" or chose_game.strip() == "3":
                             point3 = 10
                             tries = 3
                             break
-    out = False
     result = ""
-
-    while not out:
+    while result.lower().strip() != "result":
         print(" \n \nPrint 'result' to check your score")
         result = input()
-        if result.lower().strip() == "result":
-            print(" \nyour score in -game 3- is :",
-                  int(point1+point2+point3), "point")
-            out = True
-else :
+    else:
+        print(" \nyour score in -game 3- is :",
+              int(point1+point2+point3), "points")
+else:
     quit()
 # finish :)
