@@ -1,4 +1,5 @@
-# start :)
+# in this game you have to answer the question, that give you some point :)
+# start ^_^
 
 import random
 
@@ -9,7 +10,7 @@ print(" \n \nchose what the game you need to blay \n GAME 1 | GAME 2 | GMAE 3\n 
 
 chose_game = input()
 if chose_game.lower().strip() == "game 1" or chose_game.strip() == "1":
-    # gmae 1
+# gmae 1
     print(" \n--Game 1--")
     start = ""
     tries = 5
@@ -98,7 +99,7 @@ elif chose_game.lower().strip() == "game 2" or chose_game.strip() == "2":
     else:
         print(" \nyour score in -game 2- is :", int(guesspoint), "points")
 elif chose_game.lower().strip() == "game 3" or chose_game.strip() == "3":
-    # game 3
+# game 3
     print(" \n \n--Game 3--\n \n ")
     cal1 = str(374+839)
     cal2 = str(243-84)
@@ -170,4 +171,4 @@ elif chose_game.lower().strip() == "game 3" or chose_game.strip() == "3":
               int(point1+point2+point3), "points")
 else:
     quit()
-# finish :)
+# finish ^_^
